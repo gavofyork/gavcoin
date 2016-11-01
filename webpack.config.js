@@ -11,7 +11,7 @@ const WebpackErrorNotificationPlugin = require('webpack-error-notification');
 
 const ENV = process.env.NODE_ENV || 'production';
 const isProd = ENV === 'production';
-const DEST = 'dist';
+const DEST = './';
 
 module.exports = {
   debug: !isProd,
@@ -23,7 +23,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, DEST),
-    filename: '[name].js'
+    filename: 'dist.[name].js'
   },
   module: {
     loaders: [
@@ -58,11 +58,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=dist.[hash].[ext]'
       },
       {
         test: /\.(woff(2)|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=dist.[hash].[ext]'
       }
     ],
     noParse: [
