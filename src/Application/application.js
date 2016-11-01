@@ -10,7 +10,7 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 import { api } from '../parity';
 
-import * as abis from '../../../contracts/abi';
+import * as abis from '../contracts';
 
 import Accounts from '../Accounts';
 import Actions, { ActionBuyIn, ActionRefund, ActionTransfer } from '../Actions';
@@ -19,7 +19,7 @@ import Loading from '../Loading';
 import Status from '../Status';
 
 import styles from './application.css';
-import bgimage from '../../../../assets/images/dapps/gavcoin-bg.jpg';
+import bgimage from '../../assets/images/gavcoin-bg.jpg';
 
 const bgstyle = {
   backgroundImage: `url(${bgimage})`

@@ -1,0 +1,31 @@
+/* Copyright 2016 Gavin Wood */
+
+:root,
+:root body {
+  background: #fff;
+  border: 0;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+:root,
+:root body,
+:root :global(#container) {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+:root * {
+  font-weight: 300 !important;
+}
+
+:root :global(#container) > div {
+  flex: 1;
+}
