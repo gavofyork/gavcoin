@@ -1,0 +1,8 @@
+/* Copyright 2016 Gavin Wood */
+
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}

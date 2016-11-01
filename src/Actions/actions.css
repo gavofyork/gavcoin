@@ -1,0 +1,69 @@
+/* Copyright 2016 Gavin Wood */
+
+.actions {
+  text-align: center;
+  padding: 2em 0 0 0;
+  width: 100%;
+}
+
+.button {
+  margin: 0 0.5em;
+}
+
+.button button {
+  background-color: #430 !important;
+  height: 56px !important;
+  padding: 0 10px !important;
+}
+
+.button button[disabled] {
+  opacity: 0.25;
+}
+
+.dlgbtn {
+}
+
+.dlgbtn span {
+  color: #430 !important;
+}
+
+.dlgbtn[disabled] {
+  opacity: 0.25;
+}
+
+.dialog {
+}
+
+.dialog h3 {
+  color: #430 !important;
+  text-transform: uppercase;
+}
+
+.dialogtext {
+  padding-top: 1em;
+}
+
+.link, .link:hover, .link:visited {
+  color: rgb(0, 188, 212);
+  text-decoration: none;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay svg {
+  opacity: 0;
+}
+
+.toggle {
+  text-align: right;
+}
+
+.overlaytoggle {
+  position: absolute !important;
+  top: 40px;
+  right: 0;
+  display: inline-block !important;
+  width: auto !important;
+}
