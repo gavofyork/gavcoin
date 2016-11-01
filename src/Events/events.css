@@ -8,10 +8,10 @@
 
 .container {
   overflow: auto;
+  margin: 0 auto;
 }
 
 .list {
-  margin: 0 auto;
   border: none;
   border-spacing: 0;
   text-align: left;
