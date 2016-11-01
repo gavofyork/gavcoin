@@ -9,7 +9,7 @@ const rucksack = require('rucksack-css');
 const webpack = require('webpack');
 const WebpackErrorNotificationPlugin = require('webpack-error-notification');
 
-const ENV = process.env.NODE_ENV || 'development';
+const ENV = process.env.NODE_ENV || 'production';
 const isProd = ENV === 'production';
 const DEST = 'dist';
 
