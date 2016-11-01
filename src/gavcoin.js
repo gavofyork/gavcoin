@@ -10,7 +10,7 @@ import Application from './Application';
 
 import '../assets/fonts/Roboto/font.css';
 import './style.css';
-import './index.html';
+import '../index.html';
 
 ReactDOM.render(
   <Application />,
