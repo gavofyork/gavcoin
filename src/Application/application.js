@@ -184,7 +184,7 @@ export default class Application extends Component {
         });
       })
       .catch((error) => {
-        console.error('onNewBlockNumber', error);
+        console.warn('onNewBlockNumber', error);
       });
   }
 
@@ -200,7 +200,7 @@ export default class Application extends Component {
           .all([
             registry.getAddress.call({}, [api.util.sha3('gavcoin'), 'A']),
             api.eth.accounts(),
-            api.personal.accountsInfo()
+            api.parity.accountsInfo()
           ]);
       })
       .then(([address, addresses, accountsInfo]) => {
@@ -229,7 +229,7 @@ export default class Application extends Component {
         api.subscribe('eth_blockNumber', this.onNewBlockNumber);
       })
       .catch((error) => {
-        console.error('attachInterface', error);
+        console.warn('attachInterface', error);
       });
   }
 }
