@@ -1,5 +1,5 @@
 {
-  "extends": ["semistandard"],
+  "extends": ["semistandard", "standard-react"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,

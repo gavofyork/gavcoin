@@ -189,6 +189,7 @@ export default class Application extends Component {
   }
 
   attachInterface = () => {
+    console.log('*** api', api);
     api.parity
       .registryAddress()
       .then((registryAddress) => {
