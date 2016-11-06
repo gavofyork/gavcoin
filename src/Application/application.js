@@ -189,7 +189,7 @@ export default class Application extends Component {
   }
 
   attachInterface = () => {
-    api.ethcore
+    api.parity
       .registryAddress()
       .then((registryAddress) => {
         console.log(`the registry was found at ${registryAddress}`);
