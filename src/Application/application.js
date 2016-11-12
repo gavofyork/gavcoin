@@ -189,7 +189,6 @@ export default class Application extends Component {
   }
 
   attachInterface = () => {
-    console.log('*** api', api);
     api.parity
       .registryAddress()
       .then((registryAddress) => {
@@ -200,12 +199,10 @@ export default class Application extends Component {
         return Promise
           .all([
             registry.getAddress.call({}, [api.util.sha3('gavcoin'), 'A']),
-            api.eth.accounts(),
             api.parity.accounts()
           ]);
       })
-      .then(([address, addresses, accountsInfo]) => {
-        accountsInfo = accountsInfo || {};
+      .then(([address, accountsInfo]) => {
         console.log(`gavcoin was found at ${address}`);
 
         const contract = api.newContract(abis.gavcoin, address);
@@ -216,15 +213,18 @@ export default class Application extends Component {
           contract,
           accountsInfo,
           instance: contract.instance,
-          accounts: addresses.map((address) => {
-            const info = accountsInfo[address] || {};
+          accounts: Object
+            .keys(accountsInfo)
+            .filter((address) => accountsInfo[address].uuid)
+            .map((address) => {
+              const info = accountsInfo[address] || {};
 
-            return {
-              address,
-              name: info.name,
-              uuid: info.uuid
-            };
-          })
+              return {
+                address,
+                name: info.name,
+                uuid: info.uuid
+              };
+            })
         });
 
         api.subscribe('eth_blockNumber', this.onNewBlockNumber);
