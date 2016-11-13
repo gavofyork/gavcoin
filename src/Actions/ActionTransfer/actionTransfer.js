@@ -1,4 +1,4 @@
-// Copyright 2016 Gavin Wood 
+// Copyright 2016 Gavin Wood
 
 import BigNumber from 'bignumber.js';
 import React, { Component, PropTypes } from 'react';
@@ -165,7 +165,7 @@ export default class ActionTransfer extends Component {
       return;
     }
 
-    if (new BigNumber(amount).gt(fromAccount.gavBalance.replace(',', ''))) {
+    if (new BigNumber(amount).gt(fromAccount.gavBalance.replace(/,/g, ''))) {
       this.setState({
         amountError: ERRORS.invalidTotal
       });

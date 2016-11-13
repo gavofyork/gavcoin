@@ -150,7 +150,7 @@ export default class ActionBuyIn extends Component {
       return;
     }
 
-    if (new BigNumber(amount).gt(account.ethBalance.replace(',', ''))) {
+    if (new BigNumber(amount).gt(account.ethBalance.replace(/,/g, ''))) {
       this.setState({
         amountError: ERRORS.invalidTotal
       });

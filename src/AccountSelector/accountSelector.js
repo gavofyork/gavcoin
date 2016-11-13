@@ -52,7 +52,7 @@ export default class AccountSelect extends Component {
 }
 
 function isPositive (numberStr) {
-  return new BigNumber(numberStr.replace(',', '')).gt(0);
+  return new BigNumber(numberStr.replace(/,/g, '')).gt(0);
 }
 
 export function renderAccounts (accounts, options = {}) {
