@@ -171,9 +171,9 @@ export default class Application extends Component {
         this.setState({
           ethBalance: ethBalances.reduce((total, balance) => total.add(balance), new BigNumber(0)),
           gavBalance: gavBalances.reduce((total, balance) => total.add(balance), new BigNumber(0)),
-          accounts: accounts.map((account, idx) => {
-            const ethBalance = ethBalances[idx];
-            const gavBalance = gavBalances[idx];
+          accounts: accounts.map((account, index) => {
+            const ethBalance = ethBalances[index];
+            const gavBalance = gavBalances[index];
 
             account.ethBalance = api.util.fromWei(ethBalance).toFormat(3);
             account.gavBalance = gavBalance.div(DIVISOR).toFormat(6);
