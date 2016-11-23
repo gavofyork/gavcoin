@@ -12,6 +12,7 @@ import { ERRORS, validateAccount, validatePositiveNumber } from '../validation';
 import styles from '../actions.css';
 
 const NAME_ID = ' ';
+const MAX_PRICE = '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
 
 export default class ActionBuyIn extends Component {
   static contextTypes = {
@@ -85,7 +86,7 @@ export default class ActionBuyIn extends Component {
   }
 
   renderFields () {
-    const maxPriceLabel = `maximum price in ETH (current ${api.util.fromWei(this.props.price).toFormat(3)})`;
+    // const maxPriceLabel = `maximum price in ETH (current ${api.util.fromWei(this.props.price).toFormat(3)})`;
 
     return (
       <div>
@@ -107,19 +108,19 @@ export default class ActionBuyIn extends Component {
           id={ NAME_ID }
           value={ this.state.amount }
           onChange={ this.onChangeAmount } />
-        <TextField
-          autoComplete='off'
-          floatingLabelFixed
-          floatingLabelText={ maxPriceLabel }
-          fullWidth
-          hintText='the maxium price allowed for buying'
-          errorText={ this.state.maxPriceError }
-          name={ NAME_ID }
-          id={ NAME_ID }
-          value={ this.state.maxPrice }
-          onChange={ this.onChangeMaxPrice } />
       </div>
     );
+    // <TextField
+    //   autoComplete='off'
+    //   floatingLabelFixed
+    //   floatingLabelText={ maxPriceLabel }
+    //   fullWidth
+    //   hintText='the maxium price allowed for buying'
+    //   errorText={ this.state.maxPriceError }
+    //   name={ NAME_ID }
+    //   id={ NAME_ID }
+    //   value={ this.state.maxPrice }
+    //   onChange={ this.onChangeMaxPrice } />
   }
 
   onChangeAddress = (account) => {
@@ -159,8 +160,8 @@ export default class ActionBuyIn extends Component {
 
   onSend = () => {
     const { instance } = this.context;
-    const maxPrice = api.util.toWei(this.state.maxPrice);
-    const values = [this.state.account.address, maxPrice.toString()];
+    // const maxPrice = api.util.toWei(this.state.maxPrice);
+    const values = [this.state.account.address, MAX_PRICE];
     const options = {
       from: this.state.account.address,
       value: api.util.toWei(this.state.amount).toString()
