@@ -18,7 +18,7 @@
     "EIP20"
   ],
   "scripts": {
-    "build": "npm install && webpack --progress"
+    "build": "npm install && NODE_ENV=production webpack --progress --watch"
   },
   "devDependencies": {
     "babel-core": "^6.18.0",

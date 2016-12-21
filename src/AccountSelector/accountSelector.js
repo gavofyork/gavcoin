@@ -62,11 +62,7 @@ export function renderAccounts (accounts, options = {}) {
         return true;
       }
 
-      if (account.uuid) {
-        return isPositive(account[options.gavBalance ? 'gavBalance' : 'ethBalance']);
-      }
-
-      return false;
+      return isPositive(account[options.gavBalance ? 'gavBalance' : 'ethBalance']);
     })
     .map((account) => {
       const item = (

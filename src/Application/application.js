@@ -188,6 +188,33 @@ export default class Application extends Component {
       });
   }
 
+  getAccounts () {
+    return api.parity
+      .accountsInfo()
+      .catch((error) => {
+        console.warn('getAccounts', error);
+
+        return api.parity
+          .accounts()
+          .then((accountsInfo) => {
+            return Object
+              .keys(accountsInfo)
+              .filter((address) => accountsInfo[address].uuid)
+              .reduce((ret, address) => {
+                ret[address] = {
+                  name: accountsInfo[address].name
+                };
+                return ret;
+              }, {});
+          });
+      })
+      .then((accountsInfo) => {
+        console.log('getAccounts', accountsInfo);
+
+        return accountsInfo;
+      });
+  }
+
   attachInterface = () => {
     api.parity
       .registryAddress()
@@ -199,7 +226,7 @@ export default class Application extends Component {
         return Promise
           .all([
             registry.getAddress.call({}, [api.util.sha3('gavcoin'), 'A']),
-            api.parity.accounts()
+            this.getAccounts()
           ]);
       })
       .then(([address, accountsInfo]) => {
@@ -215,14 +242,12 @@ export default class Application extends Component {
           instance: contract.instance,
           accounts: Object
             .keys(accountsInfo)
-            .filter((address) => accountsInfo[address].uuid)
             .map((address) => {
               const info = accountsInfo[address] || {};
 
               return {
                 address,
-                name: info.name,
-                uuid: info.uuid
+                name: info.name
               };
             })
         });
