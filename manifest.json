@@ -3,6 +3,6 @@
   "name": "GAVcoin",
   "description": "Manage your GAVcoins, a playful ERC20-compliant token",
   "author": "Gavin Wood",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "iconUrl": ""
 }
