@@ -1,13 +1,16 @@
 // Copyright 2016 Gavin Wood
 
-const Api = require('@parity/api');
+import Api from '@parity/api';
 
-let api;
+const ethereumProvider = window.ethereum;
+let api = window.parity.api;
 
-if (!window.ethereum) {
+if (!ethereumProvider) {
+  console.warn('Unable to locate EthereumProvider, fallback to window.parity');
   api = window.parity.api;
 } else {
-  api = new Api(window.ethereum);
+  api = new Api(ethereumProvider);
+  console.log('Created API from window.ethereum provider');
 }
 
 export {
