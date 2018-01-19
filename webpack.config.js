@@ -16,7 +16,7 @@ const DEST = './';
 module.exports = {
   debug: !isProd,
   cache: !isProd,
-  devtool: isProd ? '#eval' : '#cheap-module-eval-source-map',
+  devtool: isProd ? false : '#cheap-module-eval-source-map',
   context: path.join(__dirname, './src'),
   entry: {
     'gavcoin': ['./gavcoin.js']
