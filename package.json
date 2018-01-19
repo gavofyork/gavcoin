@@ -21,6 +21,7 @@
     "build": "npm install && NODE_ENV=production webpack --progress --watch"
   },
   "devDependencies": {
+    "@parity/api": "^2.1.16",
     "babel-core": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-loader": "^6.2.7",
